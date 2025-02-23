@@ -22,7 +22,6 @@ def scrape_data_point():
     headers = {
         "User-Agent": "cis3500-scraper"
     }
-    # Request the Academics section
     req = requests.get("https://www.thedp.com/section/academics", headers=headers)
     loguru.logger.info(f"Request URL: {req.url}")
     loguru.logger.info(f"Request status code: {req.status_code}")
