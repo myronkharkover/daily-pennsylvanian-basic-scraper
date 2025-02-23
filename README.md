@@ -16,6 +16,9 @@ I updated the URL in the requests.get() call from the homepage to the Academics 
 
 Instead of finding an anchor tag with the class "frontpage-link", the scraper now looks for the most recent headline by selecting the first <a> element with the assumed CSS class "article__headline". This selector is intended to capture the headline of the top (most recent) article in the Academics section. I targeted recent headlines from the Academics section to stay informed on key changes at the school—especially since the new administration has reduced some of Penn’s funding.
 
+### Cron Interpretation
+The cron expression 0 12 * * * means that the job is scheduled to run once a day at 12:00 PM UTC. The five fields represent minute (0), hour (12), day of month (* means every day), month (* means every month), and day of week (* means every day of the week).
+
 ## Overview
 
 The workflow defined in `.github/workflows/scrape.yaml` runs on a defined schedule to:
