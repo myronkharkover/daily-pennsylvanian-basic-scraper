@@ -28,10 +28,14 @@ def scrape_data_point():
     
     if req.ok:
         soup = bs4.BeautifulSoup(req.text, "html.parser")
-        target_element = soup.find("a", class_="article__headline")
-        data_point = "" if target_element is None else target_element.text.strip()
-        loguru.logger.info(f"Data point: {data_point}")
+        target_element = soup.find("h3")
+        data_point = "" if target_element is None else target_element.get_text(strip=True)
+        loguru.logger.info(f"Data point (first H3): {data_point}")
         return data_point
+        # target_element = soup.find("a", class_="article__headline")
+        # data_point = "" if target_element is None else target_element.text.strip()
+        # loguru.logger.info(f"Data point: {data_point}")
+        # return data_point
     return ""
 
 
